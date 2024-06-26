@@ -1,0 +1,32 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+@import '../css/app.css';
+
+// select 2
+@import "~select2/dist/css/select2.css";
+
+// data table
+@import "~datatables.net-bs4/css/dataTables.bootstrap4.css";
+
+// FontAwesome
+$fa-font-path:"../webfonts";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Jquery Ui
+@import '~jquery-ui/themes/base/all.css';
+
+@import '~icheck-bootstrap/icheck-bootstrap.min.css';
+
+// Admin LTE
+@import '~admin-lte/dist/css/adminlte.css';
+
+// FontAwesome Icons
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
