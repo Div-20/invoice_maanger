@@ -20,6 +20,7 @@ use App\Http\Controllers\AdminControllers\BuildingBlockController;
 use App\Http\Controllers\AdminControllers\BuildingListController;
 use App\Http\Controllers\AdminControllers\DepartmentListController;
 use App\Http\Controllers\AdminControllers\FloorListController;
+use App\Http\Controllers\AdminControllers\ProductController;
 use App\Models\AssetType;
 use Illuminate\Support\Facades\Route;
 
@@ -63,6 +64,8 @@ Route::group(['prefix' => SiteConstants::URL_PREFIX_ADMIN_WEB], function () {
         Route::resource('currencies', ManageCurrencyController::class, ['as' => 'admin']);
         /* Manage Categories */
         Route::resource('category', CategoryController::class, ['as' => 'admin']);
+        /* Manage Products */
+        Route::resource('product', ProductController::class, ['as' => 'admin']);
         /* Manage Brand */
         Route::resource('brands', BrandController::class, ['as' => 'admin']);
 
@@ -95,16 +98,16 @@ Route::group(['prefix' => SiteConstants::URL_PREFIX_ADMIN_WEB], function () {
         Route::get('location/create/{type}/{id?}', [LocationController::class, 'create'])->name('admin.location.create');
 
 
-        Route::resource('building', BuildingListController::class, ['as' => 'admin']);
-        Route::resource('asset-type', AssetTypeController::class, ['as' => 'admin']);
-        Route::resource('departments', DepartmentListController::class, ['as' => 'admin']);
-        Route::resource('floors', FloorListController::class, ['as' => 'admin']);
-        Route::resource('building-block', BuildingBlockController::class, ['as' => 'admin']);
-        Route::resource('assets', AssetController::class, ['as' => 'admin']);
-        Route::any('asset/qrcode/{id}', [AssetController::class, 'qrcode'])->name('admin.assets.qrcode');
-        Route::any('asset/import', [AssetController::class, 'import_asset'])->name('admin.assets.import');
-        Route::any('asset/review-list', [AssetController::class, 'review_list'])->name('admin.review_list');
-        Route::any('update-asset-status', [AssetController::class, 'update_status'])->name('admin.update_status');
+        // Route::resource('building', BuildingListController::class, ['as' => 'admin']);
+        // Route::resource('asset-type', AssetTypeController::class, ['as' => 'admin']); // Product Categories
+        // Route::resource('departments', DepartmentListController::class, ['as' => 'admin']);
+        // Route::resource('floors', FloorListController::class, ['as' => 'admin']);
+        // Route::resource('building-block', BuildingBlockController::class, ['as' => 'admin']);
+        // Route::resource('assets', AssetController::class, ['as' => 'admin']);
+        // Route::any('asset/qrcode/{id}', [AssetController::class, 'qrcode'])->name('admin.assets.qrcode');
+        // Route::any('asset/import', [AssetController::class, 'import_asset'])->name('admin.assets.import');
+        // Route::any('asset/review-list', [AssetController::class, 'review_list'])->name('admin.review_list');
+        // Route::any('update-asset-status', [AssetController::class, 'update_status'])->name('admin.update_status');
 
 
     });

@@ -1,8 +1,8 @@
 @extends('admin.layout.admin-layout')
 @inject('mediaObj', 'App\Models\Media')
 @php
-    $page_title = 'Categories';
-    $add_new_url = route('admin.category.create');
+    $page_title = 'Products';
+    $add_new_url = route('admin.product.create');
 @endphp
 @section('title')
     {{ $page_title }}
@@ -50,31 +50,31 @@
                             <tr>
                                 <th style="width:5%"><input type="checkbox" id="selecctall"></th>
                                 <th style="width:20%">Name</th>
-                                <th style="width:30%">Image</th>
+                                <th style="width:30%">Category</th>
+                                <th style="width:30%">Stock</th>
                                 <th style="width:10%">Status</th>
                                 <th style="width:15%">action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($aRows as $key => $item)
+                            @forelse ($aRows as $key => $item)
                                 <tr>
                                     <td><input type="checkbox" class="checkCK_id" name="ck_id[]"
                                             value="{{ $item->id }}"></td>
                                     <td>{{ $item->name }}</td>
-                                    <td>
-                                        @php
-                                            $item::$get_media_url = true;
-                                            if($item->image){
-                                                echo HTML::image($item->image, $item->name, [ 'class' => ['w-10 img-thumbnail', 'img-responsive']]);
-                                            }
-                                        @endphp
-                                    </td>
+                                    <td>{{ $item->category }}</td>
+                                    <td>{{ $item->stock }}</td>                                    
                                     <td>{!! $item->status == $item::STATUS_ACTIVE ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger ">InActive</span>' !!}</td>
                                     <td>
                                         <a href="{{ route('admin.category.edit', $item->id) }}" class="btn btn-primary  btn-xs"><i class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr style="width:100%">
+                                    <td >No data added</td>
+                                </tr>
+                            @endforelse
+                            
                         </tbody>
                     </table>
                     {!! Form::close() !!}

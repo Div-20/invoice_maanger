@@ -1,7 +1,7 @@
 @extends('admin.layout.admin-layout')
 @inject('mediaObj', 'App\Models\Media')
 @php
-    $page_title = $aRow ? 'Edit Categories' : 'Add New Categories';
+    $page_title = $aRow ? 'Edit Product' : 'Add New Product';
     $aAuth = Auth::guard('admin')->user();
 @endphp
 @section('title')
@@ -47,28 +47,40 @@
                     <!-- Default box -->
                     <div class="card-body">
                         @if ($aRow)
-                            {!! Form::open([ 'action' => ['App\Http\Controllers\AdminControllers\CategoryController@update', $aRow->id], 'role' => 'form', 'enctype' => 'multipart/form-data', ]) !!}
+                            {!! Form::open([ 'action' => ['App\Http\Controllers\AdminControllers\ProductController@update', $aRow->id], 'role' => 'form', 'enctype' => 'multipart/form-data', ]) !!}
                             @method('PATCH')
                         @else
-                            {!! Form::open([ 'action' => 'App\Http\Controllers\AdminControllers\CategoryController@store', 'role' => 'form', 'enctype' => 'multipart/form-data', ]) !!}
-                        @endif
-                        <div class="row mx-0">
-                            <div class="col-sm-6 p-0">
-                                @php
-                                    $customPath = $mediaObj::$directory[$mediaObj::CATEGORIES];
-                                    $single_second = true;
-                                @endphp
-                                @include('include.uploadimage')
-                            </div>
-                        </div>
+                            {!! Form::open([ 'action' => 'App\Http\Controllers\AdminControllers\ProductController@store', 'role' => 'form', 'enctype' => 'multipart/form-data', ]) !!}
+                        @endif                       
 
                         
                         <div class="form-group">
-                            <label>Categories Name</label>
+                            <label>Name</label>
                             <input type=" text" class="form-control @error('name') is-invalid @enderror" name='name' value="{{ $aRow->name ?? old('name') }}" placeholder="Enter Full Name">
                             @error('name')
                                 <label class="col-form-label" for="inputError"><i class="fa fa-times-circle text-danger "></i>&nbsp;&nbsp;{{ $message }}</label>
                             @enderror
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Price</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">&#8377;</span> <!-- HTML code for Rupee symbol -->
+                                    </div>
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="price" value="{{ $aRow->price ?? old('price') }}" placeholder="Enter Product Price">
+                                </div>
+                                @error('price')
+                                    <label class="col-form-label" for="inputError"><i class="fa fa-times-circle text-danger "></i>&nbsp;&nbsp;{{ $message }}</label>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Stock</label>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name='quantity' value="{{ $aRow->quantity ?? old('quantity') }}" placeholder="Enter Product Quantity">
+                                @error('price')
+                                    <label class="col-form-label" for="inputError"><i class="fa fa-times-circle text-danger "></i>&nbsp;&nbsp;{{ $message }}</label>
+                                @enderror
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
@@ -76,6 +88,15 @@
                             @error('description')
                                 <label class="col-form-label" for="inputError"><i class="fa fa-times-circle text-danger "></i>&nbsp;&nbsp;{{ $message }}</label>
                             @enderror
+                        </div>
+                        <div class="row mx-0">
+                            <div class="col-sm-6 p-0">
+                                @php
+                                    $customPath = $mediaObj::$directory[$mediaObj::CATEGORIES];
+                                    $multiple_second = true;
+                                @endphp
+                                @include('include.uploadimage')
+                            </div>
                         </div>
                         <div class="box-footer intrfacr">
                             <button type="reset" class="btn btn-danger">Refresh</button>

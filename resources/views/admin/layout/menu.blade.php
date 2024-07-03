@@ -17,11 +17,11 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('images/mgumst-logo.png') }}" class="img-circle elevation-2"
+                <img src="{{ asset('images/logo.png') }}" class="img-circle elevation-2"
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">MGUMST </a>
+                <a href="#" class="d-block">Invoice Manager </a>
             </div>
             <div class="info text-white">
                 <div class="pull-right">
@@ -35,7 +35,7 @@
             <img src="{{$aUser->image}}" class="img-circle elevation-2" alt="User Image">
             @else
             {{-- <img src="{{asset(env('PROFILE_IMG_URL'))}}" class="img-circle elevation-2" alt="User Image"> --}}
-            <img src="{{ asset('images/mgumst-logo.png') }}" class="img-circle elevation-2" alt="User Image">
+            <img src="{{ asset('images/logo.png') }}" class="img-circle elevation-2" alt="User Image">
             @endif
           </div>
           <div class="info clearfix w-100">
@@ -91,47 +91,32 @@
 
 
 
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                   <a href="{{ route('admin.category.index')}}" class="nav-link {{(Request::is([$url_segment.'/category'])? 'active' : '' )}}">
                     <i class="nav-icon fa fa-wrench"></i><p>Manage Category</p>
                   </a>
-                </li> --}}
+                </li>
+
                 <li class="nav-item">
-                  <a href="{{ route('admin.assets.index')}}" class="nav-link {{(Request::is([$url_segment.'/assets'])? 'active' : '' )}}">
-                    <i class="nav-icon fa fa-wrench"></i><p>Manage Assets</p>
+                  <a href="{{ route('admin.product.index')}}" class="nav-link {{(Request::is([$url_segment.'/product'])? 'active' : '' )}}">
+                    <i class="nav-icon fa fa-wrench"></i><p>Manage Products</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="{{ route('admin.building.index')}}" class="nav-link {{(Request::is([$url_segment.'/building'])? 'active' : '' )}}">
-                    <i class="nav-icon fa fa-wrench"></i><p>Manage Building</p>
-                  </a>
-                </li>
-                <li class="nav-item">
+                
+                
+                {{-- <li class="nav-item">
                   <a href="{{ route('admin.asset-type.index')}}" class="nav-link {{(Request::is([$url_segment.'/asset_type'])? 'active' : '' )}}">
-                    <i class="nav-icon fa fa-wrench"></i><p>Manage Asset Type</p>
+                    <i class="nav-icon fa fa-wrench"></i><p>Manage Categories</p>
                   </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{ route('admin.departments.index')}}" class="nav-link {{(Request::is([$url_segment.'/departments'])? 'active' : '' )}}">
-                    <i class="nav-icon fa fa-wrench"></i><p>Manage Departments</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{ route('admin.floors.index')}}" class="nav-link {{(Request::is([$url_segment.'/floors'])? 'active' : '' )}}">
-                    <i class="nav-icon fa fa-wrench"></i><p>Manage Floors</p>
-                  </a>
-                </li>
+                </li> --}}
+                
 
                 {{-- <li class="nav-item">
                   <a href="{{ route('admin.building-block.index')}}" class="nav-link {{(Request::is([$url_segment.'/building-block'])? 'active' : '' )}}">
                     <i class="nav-icon fa fa-wrench"></i><p>Manage Building Block</p>
                   </a>
                 </li> --}}
-                <li class="nav-item">
-                    <a href="{{ route('admin.review_list')}}" class="nav-link {{(Request::is([$url_segment.'/asset/review-list'])? 'active' : '' )}}">
-                      <i class="nav-icon fa fa-wrench"></i><p>Manage Asset Review</p>
-                    </a>
-                  </li>
+                
 
                 {{-- <li class="nav-item">
                   <a href="{{ route('admin.brands.index')}}" class="nav-link {{(Request::is([$url_segment.'/brands'])? 'active' : '' )}}">

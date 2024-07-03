@@ -31,8 +31,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $aRow = $parent_list = array();
-        return view('admin.categories.manage', compact('aRow', 'parent_list'));
+        $aRow = array();
+        return view('admin.categories.manage', compact('aRow'));
     }
 
     /**
@@ -57,7 +57,7 @@ class CategoryController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator->errors())->withInput();
         }
-        $aData = $request->all('name', 'parent_id', 'description');
+        $aData = $request->all('name', 'description');
         if ($request->hasFile('image')) {
             $image_name = MediaHelper::uploadImageMedia($request->file('image'), Media::$directory[Media::CATEGORIES]);
             if (!$image_name) {
@@ -81,12 +81,9 @@ class CategoryController extends Controller
     {
         $parent_category_list = array();
         $category::$get_media_name = true;
-        $aRow = $category;
-        if ($aRow->parent) {
-            array_push($parent_category_list, [$aRow->parent->id => $aRow->parent->name]);
-        }
+        $aRow = $category;      
 
-        return view('admin.categories.manage', compact('aRow', 'parent_category_list'));
+        return view('admin.categories.manage', compact('aRow'));
     }
 
     /**

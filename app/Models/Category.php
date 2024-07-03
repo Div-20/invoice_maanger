@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    const STATUS_ACTIVE = 10;
-    const STATUS_INACTIVE = 5;
+    const STATUS_ACTIVE = 1;
+    const STATUS_INACTIVE = 0;
 
     public static $status_type = [
         self::STATUS_ACTIVE => 'Active',

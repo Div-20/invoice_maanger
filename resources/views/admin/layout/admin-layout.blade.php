@@ -19,7 +19,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('images/mgumst-logo.png') }}" alt="AdminLTELogo"
+            <img class="animation__shake" src="{{ asset('images/logo.png') }}" alt="AdminLTELogo"
                 height="100" width="100">
         </div>
 

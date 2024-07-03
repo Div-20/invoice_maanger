@@ -4,7 +4,9 @@
 
 @if (isset($single_one) && $single_one)
 @php $fileName = isset($fileName) ? $fileName : 'image'; @endphp
+<div class="form-group ">
 {!! HTML::image( asset($customPath.($aRow->$fileName ?? '' )) , '' , array('class'=>['my-2','w-50','img-responsive','mx-auto'], 'height'=>'100','id'=>'upload'.$fileName.'target')) !!}
+</div>
 <div class="form-group @error($fileName) has-error @enderror">
     <label>Upload {{$labelText}}</label>
     <input type="file" class="upload-single form-control" data-type="excel" name="{{$fileName}}" data-error="#img-{{$fileName}}-Error" data-id="#upload{{$fileName}}target">
@@ -27,7 +29,9 @@
 @endif
 
 @if (isset($single_second) && $single_second)
+<div class="form-group">
 {!! HTML::image( asset($customPath.($aRow->$fileName ?? '' )) , '' , array('class'=>['my-2','w-50','img-responsive','mx-auto'], 'height'=>'100','id'=>'upload'.$fileName.'target')) !!}
+</div>
 <div class="form-group @error($fileName) has-error @enderror">
     <label for="upload_image" class="upload_image_label">{{$labelText}}</label>
     <input type="file" id="upload_image" class="d-none upload-single form-control" data-type="image" name="{{$fileName}}" data-error="#imgError" data-id="#upload{{$fileName}}target">
@@ -40,6 +44,7 @@
 
 
 @if (isset($multiple_one) && $multiple_one)
+
 {!! HTML::image( asset($customPath.($aRow->$fileName ?? '' )) , '' , array('class'=>['my-2','w-50','img-responsive','mx-auto'], 'height'=>'100','id'=>'upload'.$fileName.'target')) !!}
 <div class="form-group @error($fileName) has-error @enderror">
     <label>Upload {{$fileName}}</label>
